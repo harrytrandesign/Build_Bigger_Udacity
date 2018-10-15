@@ -1,14 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.htdwps.jokescreatorlibrary.DisplayJokes;
-import com.htdwps.lib.Jokes;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,18 +41,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-//        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+
+        new EndpointAsyncTask().execute();
 
         // Get a joke from Jokes class
-        Jokes jokes = new Jokes();
-//        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
-
-        Intent jokeIntent = new Intent(this, DisplayJokes.class);
-
-        // Add the joke as a string
-        jokeIntent.putExtra(getString(R.string.jokes_private_key), jokes.getJoke());
-
-        startActivity(jokeIntent);
+//        Jokes jokes = new Jokes();
+////        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
+//
+//        Intent jokeIntent = new Intent(this, DisplayJokes.class);
+//
+//        // Add the joke as a string
+//        jokeIntent.putExtra(getString(R.string.jokes_private_key), jokes.getJoke());
+//
+//        startActivity(jokeIntent);
 
     }
 

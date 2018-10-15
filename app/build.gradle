@@ -23,6 +23,23 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            versionName "1.0­free"
+        }
+
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            versionName "1.0­paid"
+        }
     }
 
     buildTypes {
@@ -42,6 +59,7 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
 
+
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -50,4 +68,7 @@ dependencies {
     implementation project(":jokescreatorlibrary")
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'com.android.support.test:runner:0.4.1'
+    testImplementation 'com.android.support.test:rules:0.4.1'
+
 }
