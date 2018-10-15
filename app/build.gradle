@@ -30,15 +30,18 @@ android {
         javaMaxHeapSize "4g"
     }
 
+    flavorDimensions "version"
     productFlavors {
         free {
-            applicationId "com.udacity.gradle.builditbigger.free"
-            versionName "1.0­free"
+            dimension "version"
+            applicationIdSuffix "com.udacity.gradle.builditbigger.free"
+            versionNameSuffix "­free"
         }
 
         paid {
-            applicationId "com.udacity.gradle.builditbigger.paid"
-            versionName "1.0­paid"
+            dimension "version"
+            applicationIdSuffix "com.udacity.gradle.builditbigger.paid"
+            versionNameSuffix "­paid"
         }
     }
 
