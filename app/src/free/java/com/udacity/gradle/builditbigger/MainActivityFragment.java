@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.com.udacity.gradle.builditbigger.free;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,11 +13,9 @@ import android.widget.ProgressBar;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.htdwps.jokescreatorlibrary.DisplayJokes;
+import com.udacity.gradle.builditbigger.EndpointAsyncTask;
+import com.udacity.gradle.builditbigger.R;
 
-
-/**
- * A placeholder fragment containing a simple view.
- */
 public class MainActivityFragment extends Fragment {
 
     ProgressBar progressBar = null;
@@ -57,7 +55,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-        new EndpointAsyncTask().execute(this);
+        new EndpointAsyncTask().execute();
     }
 
     public void launchDisplayJokeActivity() {

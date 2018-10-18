@@ -30,7 +30,8 @@ public class EndpointAsyncTask extends AsyncTask<MainActivityFragment, Void, Str
                     new AndroidJsonFactory(), null)
 
                     // 10.0.2.2 is localhost
-            .setRootUrl("http://google.com");
+                    // Per suggestion from reviewer - Just in case, when testing, you can make use of the following URLs to connect the backend
+            .setRootUrl("http://10.0.2.2:8080/_ah/api/");
 
             myApi = builder.build();
 
@@ -39,7 +40,8 @@ public class EndpointAsyncTask extends AsyncTask<MainActivityFragment, Void, Str
         try {
             return myApi.getJoke().execute().getData();
         } catch (IOException error) {
-            return error.getMessage();
+            // Change made per review
+            return null;
         }
 
     }
