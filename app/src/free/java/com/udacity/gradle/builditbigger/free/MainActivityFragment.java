@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.com.udacity.gradle.builditbigger.free;
+package com.udacity.gradle.builditbigger.free;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +27,7 @@ public class MainActivityFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_main, container, false);
+        View root = inflater.inflate(R.layout.fragment_main_activity, container, false);
 
         button = root.findViewById(R.id.btn_tell_joke);
         button.setOnClickListener(new View.OnClickListener() {

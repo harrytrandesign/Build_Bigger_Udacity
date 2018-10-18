@@ -37,25 +37,23 @@ android {
         }
     }
 
-    flavorDimensions "version"
+    flavorDimensions "free", "paid"
     productFlavors {
         free {
-            dimension "version"
-            applicationIdSuffix "com.udacity.gradle.builditbigger.free"
-            versionNameSuffix "­free"
+            dimension "free"
+            applicationId "com.udacity.gradle.builditbigger.free"
         }
 
         paid {
-            dimension "version"
-            applicationIdSuffix "com.udacity.gradle.builditbigger.paid"
-            versionNameSuffix "­paid"
+            dimension "paid"
+            applicationId "com.udacity.gradle.builditbigger.paid"
         }
     }
 
-    sourceSets {
-        free { java.srcDirs = ['src/free/java', 'src/free/java/'] } 
-        paid {java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
-    }
+//    sourceSets {
+//        free { java.srcDirs = ['src/free/java', 'src/free/java/'] }
+//        paid {java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
+//    }
 }
 
 dependencies {
