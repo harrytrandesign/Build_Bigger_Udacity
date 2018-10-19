@@ -37,23 +37,23 @@ android {
         }
     }
 
-    flavorDimensions "free", "paid"
+    flavorDimensions "version"
     productFlavors {
         free {
-            dimension "free"
+            dimension "version"
             applicationId "com.udacity.gradle.builditbigger.free"
         }
 
         paid {
-            dimension "paid"
+            dimension "version"
             applicationId "com.udacity.gradle.builditbigger.paid"
         }
     }
 
-//    sourceSets {
-//        free { java.srcDirs = ['src/free/java', 'src/free/java/'] }
-//        paid {java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
-//    }
+    sourceSets {
+        free { java.srcDirs = ['src/free/java', 'src/free/java/'] }
+        paid {java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
+    }
 }
 
 dependencies {
@@ -74,8 +74,9 @@ dependencies {
 //    implementation project(":lib")
     implementation project(":jokescreatorlibrary")
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'com.android.support.test:runner:0.4.1'
-    testImplementation 'com.android.support.test:rules:0.4.1'
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.4.1'
+    androidTestImplementation 'com.android.support.test:rules:0.4.1'
+//    androidTestImplementation 'com.android.support:support­annotations:23.2.0'
 
 }

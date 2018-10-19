@@ -1,7 +1,5 @@
 package com.udacity.gradle.builditbigger.paid;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.htdwps.jokescreatorlibrary.DisplayJokes;
-import com.udacity.gradle.builditbigger.EndpointAsyncTask;
 import com.udacity.gradle.builditbigger.R;
 
 public class MainActivityFragment extends Fragment {
@@ -53,16 +49,16 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-        new EndpointAsyncTask().execute();
+        new EndpointAsyncTask(getContext()).execute();
     }
 
-    public void launchDisplayJokeActivity() {
-        Context context = getActivity();
-        Intent intent = new Intent(context, DisplayJokes.class);
-        intent.putExtra(context.getString(R.string.jokes_private_key), loadedJoke);
-        context.startActivity(intent);
-        progressBar.setVisibility(View.GONE);
-
-    }
+//    public void launchDisplayJokeActivity() {
+//        Context context = getActivity();
+//        Intent intent = new Intent(context, DisplayJokes.class);
+//        intent.putExtra(context.getString(R.string.jokes_private_key), loadedJoke);
+//        context.startActivity(intent);
+//        progressBar.setVisibility(View.GONE);
+//
+//    }
 
 }

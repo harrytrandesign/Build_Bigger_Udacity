@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.udacity.gradle.builditbigger.free.EndpointAsyncTask;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-        new EndpointAsyncTask().execute();
+        new EndpointAsyncTask(this).execute();
 
         // Get a joke from Jokes class
 //        Jokes jokes = new Jokes();

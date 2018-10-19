@@ -1,10 +1,13 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.free;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.htdwps.jokescreatorlibrary.DisplayJokes;
+import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
@@ -12,17 +15,18 @@ import java.io.IOException;
 /**
  * Created by HTDWPS on 10/14/18.
  */
-public class EndpointAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
+public class EndpointAsyncTask extends AsyncTask<Context, Void, String> {
 
     private static MyApi myApi = null;
-    private MainActivityFragment mainActivityFragment;
-    private Context context;
+    private Context mContext;
+    private String jokeString;
+
+    public EndpointAsyncTask(Context context) {
+        this.mContext = context;
+    }
 
     @Override
-    protected String doInBackground(MainActivityFragment... mainActivityFragments) {
-
-        mainActivityFragment = mainActivityFragments[0];
-        context = mainActivityFragment.getActivity();
+    protected String doInBackground(Context... params) {
 
         if (myApi == null) {
 
@@ -53,8 +57,15 @@ public class EndpointAsyncTask extends AsyncTask<MainActivityFragment, Void, Str
         // Create a toast for now
 //        Toast.makeText(context, s, Toast.LENGTH_LONG).show();
 
-        mainActivityFragment.loadedJoke = string;
-        mainActivityFragment.launchDisplayJokeActivity();
+        jokeString = string;
+        startJokeActivityIntent(jokeString);
 
     }
+
+    private void startJokeActivityIntent(String joke) {
+        Intent intent = new Intent(mContext, DisplayJokes.class);
+        intent.putExtra(mContext.getString(R.string.jokes_private_key), joke);
+        mContext.startActivity(intent);
+    }
+
 }
